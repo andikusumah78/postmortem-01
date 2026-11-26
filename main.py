@@ -15,6 +15,8 @@ ENTRY = (
 
 
 def main() -> None:
+    if not ENTRY or not ENTRY.endswith("."):
+        raise ValueError("ENTRY must be a non-empty sentence ending with '.'")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="\n") as f:
         f.write(ENTRY)
